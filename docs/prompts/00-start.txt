@@ -24,11 +24,15 @@ Core principles (authoritative):
 - Conservative, ethical UX
 
 Tech stack (fixed):
-- Backend: NestJS
+- Backend: NestJS (TypeScript)
+- Frontend: React SPA (Vite + TypeScript)
 - Database: PostgreSQL
+- ORM: TypeORM
 - Infra: Docker Compose (1–2 servers)
-- Email: SendGrid
-- Cron-based alerting
+- Email: SendGrid (outbound + inbound parse)
+- Payments: Stripe Checkout + Stripe Billing
+- Cron-based alerting (@nestjs/schedule)
+- Language: English only in v1
 
 Existing authoritative docs:
 - Functional Specification

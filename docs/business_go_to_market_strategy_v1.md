@@ -72,7 +72,7 @@ This enables:
 ### Pricing Model
 - Subscription-based
 - $6.99 per month
-- Annual plan with ~20% discount
+- Annual plan: $66.99/year (~20% discount)
 
 ### Rationale
 - Low enough to be an impulse purchase
@@ -82,7 +82,7 @@ This enables:
 ### Free Trial
 - 14 days
 - No credit card required
-- Paywall triggered by limits, not time alone
+- Paywall triggered by **14-day expiration OR limits reached** (whichever comes first)
 
 ---
 
@@ -219,14 +219,16 @@ Avoid:
 ## 14. KPIs & Metrics
 
 ### Core Metrics
-- Trial → paid conversion
-- Churn rate
-- Alerts delivered vs opened
-- Forward-email adoption
+- Trial → paid conversion rate
+- Churn rate (monthly)
+- Alert delivery rate (via SendGrid delivery webhooks)
+- Forward-email adoption (% of users who use forward-email at least once)
+
+Note: Email open tracking is not used in v1 (privacy-first decision). Delivery confirmation via SendGrid webhooks is the proxy metric.
 
 ### North Star Metric
 
-> % of users who successfully receive and act on an expiration alert
+> % of users who receive at least one alert and convert to paid
 
 ---
 

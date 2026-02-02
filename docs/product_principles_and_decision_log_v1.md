@@ -19,7 +19,9 @@ This is an **internal-facing document**, but safe to share with trusted collabor
 
 ## Core Product Philosophy
 
-**"An intelligent inbox that takes care of me."**
+**"Never miss what matters."**
+
+_(Extended positioning: "An intelligent inbox that takes care of your expirations.")_
 
 Expiration Guardian exists to remove cognitive load related to dates, expirations, and renewals — without becoming noisy, complex, or risky.
 
@@ -103,15 +105,18 @@ We never claim legal, financial, or compliance guarantees.
 
 The following are **intentionally out of scope** for v1:
 
-- Payment processing
-- Bank or billing integrations
+- Tracking user's external payments, bills, or invoices (we track **dates**, not money)
+- Bank or financial provider integrations
 - Real-time push notifications
 - Mobile apps
 - Legal or compliance guarantees
 - Deep document storage or scanning
 - AI auto-actions without confirmation
+- Multi-language support
 
-If a feature proposal touches one of these, it is rejected by default.
+Note: Stripe integration for the product's **own** subscription billing is in scope. The "Dates, Not Money" principle refers to not building features that track users' financial obligations — not to avoiding payment collection for the product itself.
+
+If a feature proposal touches one of these non-goals, it is rejected by default.
 
 ---
 
@@ -178,20 +183,23 @@ If a feature proposal touches one of these, it is rejected by default.
 We measure **behavior, not vanity metrics**.
 
 Primary metrics:
-- % of suggested expirations confirmed
-- Alert open rate
-- Time-to-first-alert
+- % of suggested expirations confirmed (forward-email acceptance rate)
+- Alert delivery rate (sent + delivered via SendGrid webhooks)
+- Time-to-first-alert (days from signup to first alert sent)
 - Churn after first alert cycle
 
 Secondary metrics:
 - Documents per user
 - Recurring items per user
-- Digest engagement
+- Digest delivery rate
+
+Note: Email **open tracking is not used in v1** due to privacy concerns (Apple Mail Privacy Protection, etc.) and unreliability. We track delivery, not opens.
 
 Metrics we intentionally ignore:
 - Daily active usage
 - Time spent in app
 - Feature click-throughs
+- Email open rates
 
 ---
 
